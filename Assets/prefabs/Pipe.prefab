@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 41134894}
   - component: {fileID: 41134895}
   - component: {fileID: 41134893}
+  - component: {fileID: 314114512406437001}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -145,3 +146,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -10
+--- !u!114 &314114512406437001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679634138148556995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8394de64450e0b742b814ca1ccdf6e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PipeSpawner: {fileID: 0}
