@@ -2,14 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class InputHandler : MonoBehaviour
+public class AutoSideScroller : MonoBehaviour
 {
     [SerializeField]
-    private float jumpForce = 500;
-
+    private float speed = -5;
     private Rigidbody2D _rb;
 
     private void Awake()
@@ -28,18 +26,6 @@ public class InputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void OnJump(InputAction.CallbackContext ctx)
-    {
-        if (ctx.performed)
-            Jump();
-    }
-
-    private void Jump()
-    {
-        Debug.Log($"Jumped {jumpForce}");
-        _rb.AddForce(new Vector2(0, jumpForce));
+        _rb.velocity = new Vector2(speed, 0);
     }
 }
