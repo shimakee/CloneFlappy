@@ -5,6 +5,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Current;
+    public static bool GameStarted = false;
+
+    [SerializeField]
+    private GameObject bird;
+    [SerializeField]
+    private PipeSpawner pipeSpawner;
+    [SerializeField]
+    private GameObject UICanvas;
 
     private void Awake()
     {
@@ -27,9 +35,25 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("StartGame");
+        GameStarted = true;
+        bird.SetActive(true);
+        bird.transform.position = Vector2.zero;
+        var rb = bird.GetComponent<Rigidbody2D>();
+        rb.gravityScale = 1;
+
+        pipeSpawner.StartSpawn();
+        UICanvas.SetActive(false);
     }
     public void EndGame()
     {
         Debug.Log("end game");
+        GameStarted = false;
+        var rb = bird.GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
+        bird.transform.position = Vector2.zero;
+        bird.SetActive(false);
+
+        pipeSpawner.EndSpawn();
+        UICanvas.SetActive(true);
     }
 }

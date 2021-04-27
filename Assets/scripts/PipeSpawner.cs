@@ -14,6 +14,8 @@ public class PipeSpawner : MonoBehaviour
     private int spawnLimit = 10;
     private float time;
     public Queue<GameObject> Pipes = new Queue<GameObject>();
+    public List<GameObject> AllPipes = new List<GameObject>();
+    public bool IsSpawning = false;
 
     private void Awake()
     {
@@ -33,6 +35,8 @@ public class PipeSpawner : MonoBehaviour
             if(pipeCollision != null)
                 pipeCollision.PipeSpawner = this;
             Pipes.Enqueue(pipe);
+            AllPipes.Add(pipe);
+            pipe.SetActive(false);
         }
 
     }
@@ -41,7 +45,7 @@ public class PipeSpawner : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if(time > spawnTimer)
+        if(time > spawnTimer && IsSpawning)
         {
             time = 0;
 
@@ -49,6 +53,24 @@ public class PipeSpawner : MonoBehaviour
             pipe.SetActive(true);
             pipe.transform.position = this.transform.position;
             
+        }
+    }
+
+    public void StartSpawn()
+    {
+        IsSpawning = true;
+    }
+
+    public void EndSpawn()
+    {
+        IsSpawning = false;
+
+        foreach (var pipe in AllPipes)
+        {
+            pipe.transform.position = this.transform.position;
+            if (!Pipes.Contains(pipe))
+                Pipes.Enqueue(pipe);
+            pipe.SetActive(false);
         }
     }
 }

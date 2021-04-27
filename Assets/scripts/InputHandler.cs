@@ -33,7 +33,7 @@ public class InputHandler : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
+        if (ctx.performed && GameManager.GameStarted)
             Jump();
     }
 

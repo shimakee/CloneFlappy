@@ -22,7 +22,7 @@ public class PipeCollision : MonoBehaviour
     {
         if(collision.gameObject.tag == "wall")
         {
-            Debug.Log("pipe hit wall");
+            Debug.Log("hit wall");
             PipeSpawner.Pipes.Enqueue(this.gameObject);
             this.gameObject.SetActive(false);
         }
