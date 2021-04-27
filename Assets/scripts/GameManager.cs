@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour
     private PipeSpawner pipeSpawner;
     [SerializeField]
     private GameObject UICanvas;
+    private int Score;
+    public event Action<int> OnScore;
 
     private void Awake()
     {
@@ -30,6 +33,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ModifyScore(int points)
+    {
+        Score += points;
+        OnScore?.Invoke(Score);
     }
 
     public void StartGame()

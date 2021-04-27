@@ -21,4 +21,9 @@ public class BirdCollision : MonoBehaviour
     {
         GameManager.Current.EndGame();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameManager.Current.ModifyScore(10);
+    }
 }

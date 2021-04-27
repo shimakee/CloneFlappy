@@ -26,5 +26,8 @@ public class PipeCollision : MonoBehaviour
             PipeSpawner.Pipes.Enqueue(this.gameObject);
             this.gameObject.SetActive(false);
         }
+
+        if (collision.gameObject.tag == "Player")
+            Debug.Log("score");
     }
 }
