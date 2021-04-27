@@ -39,7 +39,6 @@ public class InputHandler : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log($"Jumped {jumpForce}");
         _rb.AddForce(new Vector2(0, jumpForce));
     }
 }

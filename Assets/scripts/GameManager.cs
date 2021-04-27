@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("StartGame");
+        Current.Score = 0;
+        Current.ModifyScore(0);
         GameStarted = true;
         bird.SetActive(true);
         bird.transform.position = Vector2.zero;
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
     }
     public void EndGame()
     {
-        Debug.Log("end game");
+
         GameStarted = false;
         var rb = bird.GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;

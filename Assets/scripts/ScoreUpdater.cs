@@ -34,7 +34,7 @@ public class ScoreUpdater : MonoBehaviour
 
     private void UpdateText(int score)
     {
-        Debug.Log($"score {score}");
+        //Debug.Log($"score {score}");
         textMesh.text = score.ToString();
     }
 }
