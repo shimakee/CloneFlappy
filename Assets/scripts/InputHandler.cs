@@ -6,6 +6,18 @@ using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
+    [SerializeField]
+    private float jumpForce;
+
+    private Rigidbody2D _rb;
+
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+
+        if (_rb == null)
+            throw new NullReferenceException("Rigidbody2d should not be null.");
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +38,7 @@ public class InputHandler : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("jump");
+        Debug.Log($"Jumped {jumpForce}");
+        _rb.AddForce(new Vector2(0, jumpForce));
     }
 }
