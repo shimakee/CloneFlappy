@@ -19,11 +19,6 @@ public class BirdCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        EndGame();
-    }
-
-    private void EndGame()
-    {
-        Debug.Log("Hit");
+        GameManager.Current.EndGame();
     }
 }
