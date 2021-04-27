@@ -9,9 +9,7 @@ public class PipeSpawner : MonoBehaviour
     [SerializeField]
     private GameObject pipePrefab;
     [SerializeField]
-    private Vector2 spawnPosition;
-    [SerializeField]
-    private float spawnTimer = 5;
+    private float spawnTimer = 2;
     private float time;
 
     private void Awake()
@@ -34,8 +32,7 @@ public class PipeSpawner : MonoBehaviour
         {
             time = 0;
             var pipe = GameObject.Instantiate(pipePrefab);
-            pipe.transform.position = spawnPosition;
+            pipe.transform.position = this.transform.position;
         }
-
     }
 }
