@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
         OnScore?.Invoke(Score);
     }
 
+    public void QuitApp()
+    {
+        Application.Quit();
+    }
+
     public void StartGame()
     {
         Debug.Log("StartGame");
