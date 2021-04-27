@@ -32,6 +32,8 @@ public class FullPipe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        var y = Mathf.Cos(this.transform.position.x);
+        this.transform.position = new Vector2(this.transform.position.x, y);
     }
 }
